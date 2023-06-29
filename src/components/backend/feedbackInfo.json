@@ -1,0 +1,7 @@
+{
+  "title": "Please leave feedback",
+  "buttons": ["Good", "Neutral", "Bad"],
+  "info": "Statistics",
+  "statistics": ["Good", "Neutral", "Bad", "Total", "Positive feedback"],
+  "message": "There is no feedback"
+}
