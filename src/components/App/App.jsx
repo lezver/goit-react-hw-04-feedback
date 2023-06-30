@@ -1,39 +1,41 @@
-import { Component } from 'react';
+import { useState } from 'react';
 import { Section, feedbackInfo } from 'components';
 
-export class App extends Component {
-  state = { good: 0, neutral: 0, bad: 0 };
+export const App = () => {
+  const [good, getDood] = useState(0);
+  const [neutral, getNeutral] = useState(0);
+  const [bad, getBad] = useState(0);
 
-  handleUpdate = ({ target: { textContent } }) => {
+  const handleUpdate = ({ target: { textContent } }) => {
     const item = textContent.toLowerCase();
-    this.setState(prevState => ({
-      [item]: prevState[item] + 1,
-    }));
+
+    switch (item) {
+      case 'good':
+        return getDood(prevState => prevState + 1);
+      case 'neutral':
+        return getNeutral(prevState => prevState + 1);
+      case 'bad':
+        return getBad(prevState => prevState + 1);
+      default:
+        return;
+    }
   };
 
-  countPositiveFeedbackPercentage = () => {
-    const { good, neutral, bad } = this.state;
-
+  const countPositiveFeedbackPercentage = () => {
     return Math.round((good * 100) / (good + neutral + bad));
   };
 
-  countTotalFeedback = () => {
-    const { good, neutral, bad } = this.state;
-
+  const countTotalFeedback = () => {
     return good + neutral + bad;
   };
 
-  render() {
-    return (
-      <>
-        <Section
-          data={feedbackInfo}
-          total={this.countTotalFeedback}
-          positive={this.countPositiveFeedbackPercentage}
-          update={this.handleUpdate}
-          state={this.state}
-        />
-      </>
-    );
-  }
-}
+  return (
+    <Section
+      data={feedbackInfo}
+      total={countTotalFeedback}
+      positive={countPositiveFeedbackPercentage}
+      update={handleUpdate}
+      state={[good, neutral, bad]}
+    />
+  );
+};

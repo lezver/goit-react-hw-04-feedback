@@ -28,3 +28,27 @@
     color: crimson;
   }
 }
+.feedback-box__statistics .statistics__total {
+  > p {
+    font-weight: bold;
+    border-radius: 8px;
+    border: 3px dashed rgb(69, 226, 231);
+    color: rgb(69, 226, 231);
+    padding: 4px;
+    > span {
+      color: rgb(52, 138, 139);
+    }
+  }
+}
+.feedback-box__statistics .statistics__positive {
+  > p {
+    font-weight: bold;
+    border-radius: 8px;
+    border: 3px dashed rgb(112, 223, 49);
+    color: rgb(112, 223, 49);
+    padding: 4px;
+    > span {
+      color: rgb(68, 134, 30);
+    }
+  }
+}

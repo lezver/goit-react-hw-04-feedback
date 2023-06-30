@@ -8,7 +8,8 @@ export const Section = ({
   update,
   state,
 }) => {
-  const { good, neutral, bad } = state;
+  const [good, neutral, bad] = state;
+
   return (
     <section className="feedback-box">
       <h1>{title}</h1>
