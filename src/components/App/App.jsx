@@ -2,20 +2,20 @@ import { useState } from 'react';
 import { Section, feedbackInfo } from 'components';
 
 export const App = () => {
-  const [good, getDood] = useState(0);
-  const [neutral, getNeutral] = useState(0);
-  const [bad, getBad] = useState(0);
+  const [good, setDood] = useState(0);
+  const [neutral, setNeutral] = useState(0);
+  const [bad, setBad] = useState(0);
 
   const handleUpdate = ({ target: { textContent } }) => {
     const item = textContent.toLowerCase();
 
     switch (item) {
       case 'good':
-        return getDood(prevState => prevState + 1);
+        return setDood(prevState => prevState + 1);
       case 'neutral':
-        return getNeutral(prevState => prevState + 1);
+        return setNeutral(prevState => prevState + 1);
       case 'bad':
-        return getBad(prevState => prevState + 1);
+        return setBad(prevState => prevState + 1);
       default:
         return;
     }
